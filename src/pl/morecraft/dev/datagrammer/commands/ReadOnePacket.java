@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-public class ReadPacket extends Command {
+public class ReadOnePacket extends Command {
 
     @SuppressWarnings("Duplicates")
     @Override
     public void setup() {
-        addAlias("read packet", true);
-        addAlias("rp", true);
+        addAlias("read single packet", true);
+        addAlias("rsp", true);
         setArgsCount(0);
         setArgsInfo("");
         setShortInfo("Reads single packet and prints output");

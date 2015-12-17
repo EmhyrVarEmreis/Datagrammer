@@ -26,8 +26,8 @@ public class Datagrammer {
         commands.add(new Exit());
         commands.add(new Init());
         commands.add(new PacketSize());
-        commands.add(new Read());
-        commands.add(new ReadPacket());
+        commands.add(new ReadPackets());
+        commands.add(new ReadOnePacket());
         commands.add(new ReadToTimeout());
         commands.add(new Send());
         commands.add(new Timeout());
@@ -52,7 +52,7 @@ public class Datagrammer {
             for (Command c : commands) {
                 if ((s = c.checkCommand(cmd)) != null) {
                     try {
-                        s = cmd.substring(s.indexOf(s) + 1).trim();
+                        s = cmd.substring(cmd.indexOf(s) + s.length()).trim();
                         if (c.validateArgs(s)) {
                             if (c.parseArgs(s)) {
                                 if (c.checkPre(socket)) {
@@ -67,6 +67,7 @@ public class Datagrammer {
                     } catch (Exception e) {
                         out.print(e.getMessage() + "\n\n");
                         executed = true;
+                        break;
                     }
                 }
             }
