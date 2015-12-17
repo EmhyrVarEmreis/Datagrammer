@@ -29,7 +29,7 @@ public class ReadPacket extends Command {
         byte[] buff = new byte[Config.DEFAULT_PACKET_SIZE];
         DatagramPacket packet = new DatagramPacket(buff, buff.length);
         socket.receive(packet);
-        out.println("Packet received: '" + new String(packet.getData(), Config.DEFAULT_CHARSET) + "'");
+        out.println("Received: '" + new String(packet.getData(), Config.DEFAULT_CHARSET) + "'");
         return socket;
     }
 

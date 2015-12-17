@@ -36,7 +36,7 @@ public class Read extends Command {
             msg += new String(packet.getData(), Config.DEFAULT_CHARSET);
             count++;
         }
-        out.println("Packet received: '" + msg + "' in " + count + " packets");
+        out.println("Received: '" + msg + "' in " + count + " packets");
         return socket;
     }
 
