@@ -8,6 +8,7 @@ import pl.morecraft.dev.datagrammer.misc.InvalidArgumentsCountException;
 
 import java.io.IOException;
 import java.net.DatagramSocket;
+import java.net.SocketTimeoutException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -62,6 +63,10 @@ public class Datagrammer {
                         } else {
                             throw new InvalidArgumentsCountException("Invalid argument count");
                         }
+                        executed = true;
+                        break;
+                    } catch (SocketTimeoutException e) {
+                        out.print(e.getMessage() + "\n");
                         executed = true;
                         break;
                     } catch (Exception e) {
