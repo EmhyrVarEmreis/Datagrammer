@@ -26,7 +26,7 @@ public class Exit extends Command {
 
     @Override
     public DatagramSocket execute(DatagramSocket socket, Consoler out) throws UnknownHostException, SocketException {
-        out.println("Exiting...");
+        out.println("Exiting...", false);
         System.exit(0);
         return socket;
     }
