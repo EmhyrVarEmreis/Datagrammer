@@ -29,7 +29,7 @@ public class Connect extends Command {
         String[] s = getArgs();
         s[0] = Objects.equals(s[0], "l") ? "localhost" : s[0];
         socket.connect(InetAddress.getByName(s[0]), Integer.parseInt(s[1]));
-        System.out.println("Connected to " + s[0] + ":" + s[1]);
+        out.println("Connected to " + s[0] + ":" + s[1]);
         return socket;
     }
 
