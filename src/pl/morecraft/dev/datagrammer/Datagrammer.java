@@ -41,8 +41,9 @@ public class Datagrammer {
         while (true) {
             String cmd = scanner.nextLine();
             if (cmd.equalsIgnoreCase("help")) {
+                out.println("", false);
                 for (Command c : commands) {
-                    out.println(c.getShortInfo(), false);
+                    out.println(c.getShortInfo() + "\n", false);
                 }
                 continue;
             } else if (cmd.equalsIgnoreCase("forceexit")) {
