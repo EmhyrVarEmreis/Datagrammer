@@ -19,7 +19,7 @@ public class ReadPackets extends Command {
         setArgsInfo("[count]");
         setShortInfo("Reads [count] packet and prints output");
         mustBeBound(true);
-        mustBeConnected(true);
+        mustBeConnected(false);
         mustBeNotClosed(true);
         mustBeNotNull(true);
     }

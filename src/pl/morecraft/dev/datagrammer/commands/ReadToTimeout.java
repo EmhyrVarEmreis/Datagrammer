@@ -20,7 +20,7 @@ public class ReadToTimeout extends Command {
         setArgsInfo("");
         setShortInfo("Reads all available packets and prints output");
         mustBeBound(true);
-        mustBeConnected(true);
+        mustBeConnected(false);
         mustBeNotClosed(true);
         mustBeNotNull(true);
     }

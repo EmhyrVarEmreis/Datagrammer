@@ -19,7 +19,7 @@ public class ReadOnePacket extends Command {
         setArgsInfo("");
         setShortInfo("Reads single packet and prints output");
         mustBeBound(true);
-        mustBeConnected(true);
+        mustBeConnected(false);
         mustBeNotClosed(true);
         mustBeNotNull(true);
     }
