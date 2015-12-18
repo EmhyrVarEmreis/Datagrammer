@@ -32,17 +32,14 @@ public class Send extends Command {
 
         String txt = getArgs()[0];
         byte[] data = txt.getBytes(DEFAULT_CHARSET);
-        txt = "";
-        int count = 0;
-        for (int i = 0; i < (data.length / DEFAULT_PACKET_SIZE) + 1; i++) {
+        int count = (int) Math.ceil(1.0 * data.length / DEFAULT_PACKET_SIZE);
+        for (int i = 0; i < count; i++) {
             byte[] buff = new byte[DEFAULT_PACKET_SIZE];
-            buff = Arrays.copyOfRange(data, i * DEFAULT_PACKET_SIZE, Math.max((i + 1) * DEFAULT_PACKET_SIZE - 1, buff.length - 1));
+            buff = Arrays.copyOfRange(data, i * DEFAULT_PACKET_SIZE, Math.max((i + 1) * DEFAULT_PACKET_SIZE, buff.length));
             DatagramPacket packet = new DatagramPacket(buff, buff.length);
-            txt += new String(packet.getData(), DEFAULT_CHARSET);
             socket.send(packet);
-            count++;
         }
-        out.println("Sent: '" + txt + "' in " + (count) + " packets");
+        out.println("Sent: '" + new String(data, DEFAULT_CHARSET) + "' in " + (count) + " packets (" + data.length + "b) ");
 
         return socket;
     }
