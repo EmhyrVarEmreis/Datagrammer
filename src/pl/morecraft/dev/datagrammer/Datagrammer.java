@@ -53,7 +53,6 @@ public class Datagrammer {
             }
             for (Command c : commands) {
                 if ((s = c.checkCommand(cmd)) != null) {
-                    System.out.println(c.getAliases().get(0));
                     try {
                         s = cmd.substring(cmd.indexOf(s) + s.length()).trim();
                         if (c.validateArgs(s)) {
